@@ -29,78 +29,80 @@ export default class Player extends Component {
         </CardMedia>
         <CardTitle title="Card title" subtitle="Card subtitle" />
         <CardText>
-          <Chip
-            backgroundColor={indigo200}
-            style={styles.chip}
-            >
-            <Avatar size={32} color={indigo300} backgroundColor={blue900}>
-              10
-            </Avatar>
-            Ball manipulation
-          </Chip>
-          <Chip
-            backgroundColor={indigo200}
-            style={styles.chip}
-            >
-            <Avatar size={32} color={indigo300} backgroundColor={blue900}>
-              3
-            </Avatar>
-            Kicking abilities
-          </Chip>
-          <Chip
-            backgroundColor={indigo200}
-            style={styles.chip}
-            >
-            <Avatar size={32} color={indigo300} backgroundColor={blue900}>
-              5
-            </Avatar>
-            Passing ablilities
-          </Chip>
-          <Chip
-            backgroundColor={indigo200}
-            style={styles.chip}
-            >
-            <Avatar size={32} color={indigo300} backgroundColor={blue900}>
-              3
-            </Avatar>
-            Duel/Tackling ablilities
-          </Chip>
-          <Chip
-            backgroundColor={indigo200}
-            style={styles.chip}
-            >
-            <Avatar size={32} color={indigo300} backgroundColor={blue900}>
-              3
-            </Avatar>
-            Field speed coverage
-          </Chip>
-          <Chip
-            backgroundColor={indigo200}
-            style={styles.chip}
-            >
-            <Avatar size={32} color={indigo300} backgroundColor={blue900}>
-              2
-            </Avatar>
-            Blocking ablitites
-          </Chip>
-          <Chip
-            backgroundColor={indigo200}
-            style={styles.chip}
-            >
-            <Avatar size={32} color={indigo300} backgroundColor={blue900}>
-              1
-            </Avatar>
-            Game strategy
-          </Chip>
-          <Chip
-            backgroundColor={indigo200}
-            style={styles.chip}
-            >
-            <Avatar size={32} color={indigo300} backgroundColor={blue900}>
-              10
-            </Avatar>
-            Playmaking Risks
-          </Chip>
+          <div style={styles.wrapper}>          
+            <Chip
+              backgroundColor={indigo200}
+              style={styles.chip}
+              >
+              <Avatar size={32} color={indigo300} backgroundColor={blue900}>
+                10
+              </Avatar>
+              Ball manipulation
+            </Chip>
+            <Chip
+              backgroundColor={indigo200}
+              style={styles.chip}
+              >
+              <Avatar size={32} color={indigo300} backgroundColor={blue900}>
+                3
+              </Avatar>
+              Kicking abilities
+            </Chip>
+            <Chip
+              backgroundColor={indigo200}
+              style={styles.chip}
+              >
+              <Avatar size={32} color={indigo300} backgroundColor={blue900}>
+                5
+              </Avatar>
+              Passing ablilities
+            </Chip>
+            <Chip
+              backgroundColor={indigo200}
+              style={styles.chip}
+              >
+              <Avatar size={32} color={indigo300} backgroundColor={blue900}>
+                3
+              </Avatar>
+              Duel/Tackling ablilities
+            </Chip>
+            <Chip
+              backgroundColor={indigo200}
+              style={styles.chip}
+              >
+              <Avatar size={32} color={indigo300} backgroundColor={blue900}>
+                3
+              </Avatar>
+              Field speed coverage
+            </Chip>
+            <Chip
+              backgroundColor={indigo200}
+              style={styles.chip}
+              >
+              <Avatar size={32} color={indigo300} backgroundColor={blue900}>
+                2
+              </Avatar>
+              Blocking ablitites
+            </Chip>
+            <Chip
+              backgroundColor={indigo200}
+              style={styles.chip}
+              >
+              <Avatar size={32} color={indigo300} backgroundColor={blue900}>
+                1
+              </Avatar>
+              Game strategy
+            </Chip>
+            <Chip
+              backgroundColor={indigo200}
+              style={styles.chip}
+              >
+              <Avatar size={32} color={indigo300} backgroundColor={blue900}>
+                10
+              </Avatar>
+              Playmaking Risks
+            </Chip>
+          </div>
         </CardText>
         <CardActions>
 
