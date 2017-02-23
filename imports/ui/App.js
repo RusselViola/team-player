@@ -11,8 +11,15 @@ import Player from './Player';
 
 export default class App extends Component {
 
-  getPlayers() {
-    return [
+  constructor(props){
+    super(props);
+    this.state = {
+      players: []
+    };
+  }
+
+  componentWillMount() {
+    this.setState({ players: [
       {
         _id: 1,
         name: 'Russel Viola',
@@ -49,11 +56,11 @@ export default class App extends Component {
         gameStrategy: 1,
         playmakingrisks: 10,
       }
-    ];
+    ]});
   }
 
   renderPlayers() {
-    return this.getPlayers().map((player) => (
+    return this.state.players.map((player) => (
       <TeamList
         key={player._id}
         player={player}
