@@ -1,11 +1,36 @@
 import React, { Component } from 'react';
+import { browserHistory } from 'react-router';
+import { Players } from '../api/Players';
 
 export default class NewPlayer extends Component {
 
+  submitPlayer(event) {
+    event.preventDefault();
+
+    Players.insert({
+      name: this.refs.name.value,
+      team: this.refs.team.value,
+      ballManipulation: this.refs.ballManipulation.value,
+      kickingAbilities: this.refs.kickingAbilities.value,
+      passingAbilities: this.refs.passingAbilities.value,
+      duelTackling: this.refs.duelTackling.value,
+      fieldCoverage: this.refs.fieldCoverage.value,
+      blockingAblilities: this.refs.blockingAblilities.value,
+      gameStrategy: this.refs.gameStrategy.value,
+      playmakingrisks: this.refs.playmakingrisks.value,
+      notes: this.refs.notes.value,
+      createdAt: new Date(),
+    });
+
+    console.log('Succes player submitted');
+
+    browserHistory.push('/');
+  }
+
   render() {
     return (
-      <div class="row">
-        <form className="col s12">
+      <div className="row">
+        <form className="col s12" onSubmit={this.submitPlayer.bind(this)}>
           <h3>Add a new player</h3>
 
           <div className="row">

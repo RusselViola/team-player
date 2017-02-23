@@ -1,6 +1,6 @@
 import { Mongo } from 'meteor/mongo';
 
-export const Players = new Mongo.collection('players');
+export const Players = new Mongo.Collection('players');
 
 const PlayerSchema = new SimpleSchema({
   name: { type: String },
