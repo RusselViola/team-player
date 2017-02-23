@@ -13,6 +13,7 @@ import { Players } from '../api/Players';
 import TeamList from './TeamList';
 import TeamStats from './TeamStats';
 import Player from './Player';
+import AccountsWrapper from './AccountsWrapper';
 
 export class App extends Component {
 
@@ -40,8 +41,9 @@ export class App extends Component {
           <AppBar
             title="Team-Player Application"
             iconClassNameRight="muidocs-icon-navigation-expand-more"
-            showMenuIconButton={false}
-          />
+            showMenuIconButton={false}>
+            <AccountsWrapper />
+          </AppBar>
 
           <div className="row">
             <div className="col s12 m7"><Player /></div>
