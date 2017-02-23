@@ -20,6 +20,7 @@ export default class NewPlayer extends Component {
       playmakingrisks: this.refs.playmakingrisks.value,
       notes: this.refs.notes.value,
       createdAt: new Date(),
+      owner: Meteor.userId(),
     });
 
     console.log('Succes player submitted');
