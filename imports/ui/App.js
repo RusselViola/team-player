@@ -1,15 +1,20 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import RaisedButton from 'material-ui/RaisedButton';
 import AppBar from 'material-ui/AppBar';
 import { List } from 'material-ui/List';
 import Divider from 'material-ui/Divider';
+import { createContainer } from 'meteor/react-meteor-data';
+import { Link } from 'react-router';
+
+// database - Collection
+import { Players } from '../api/Players';
 
 import TeamList from './TeamList';
 import TeamStats from './TeamStats';
 import Player from './Player';
 
-export default class App extends Component {
+export class App extends Component {
 
   constructor(props){
     super(props);
@@ -18,49 +23,8 @@ export default class App extends Component {
     };
   }
 
-  componentWillMount() {
-    this.setState({ players: [
-      {
-        _id: 1,
-        name: 'Russel Viola',
-        ballManipulation: 10,
-        kickingAbilities: 3,
-        passingAbilities: 4,
-        duelTackling: 6,
-        fieldCoverage: 2,
-        blockingAblilities: 7,
-        gameStrategy: 1,
-        playmakingrisks: 10,
-      },
-      {
-        _id: 2,
-        name: 'aloiV lessuR',
-        ballManipulation: 10,
-        kickingAbilities: 3,
-        passingAbilities: 4,
-        duelTackling: 6,
-        fieldCoverage: 2,
-        blockingAblilities: 7,
-        gameStrategy: 1,
-        playmakingrisks: 10,
-      },
-      {
-        _id: 3,
-        name: 'Viola Russel',
-        ballManipulation: 10,
-        kickingAbilities: 3,
-        passingAbilities: 4,
-        duelTackling: 6,
-        fieldCoverage: 2,
-        blockingAblilities: 7,
-        gameStrategy: 1,
-        playmakingrisks: 10,
-      }
-    ]});
-  }
-
   renderPlayers() {
-    return this.state.players.map((player) => (
+    return this.props.players.map((player) => (
       <TeamList
         key={player._id}
         player={player}
@@ -82,7 +46,7 @@ export default class App extends Component {
           <div className="row">
             <div className="col s12 m7"><Player /></div>
             <div className="col s12 m5">
-              <h2>Team List</h2>
+              <h2>Team List</h2><Link to="/NewPlayer" className="waves-effect waves-light btn">Add player</Link>
               <Divider />
                 <List>
                   {this.renderPlayers()}
@@ -97,3 +61,15 @@ export default class App extends Component {
     )
   }
 }
+
+App.propTypes = {
+  players: PropTypes.array.isRequired,
+}
+
+export default createContainer(() => {
+  Meteor.subscribe('players');
+
+  return {
+    players: Players.find({}, {sort: { name: 1 }}).fetch(),
+  };
+}, App);
