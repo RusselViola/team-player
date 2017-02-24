@@ -14,6 +14,7 @@ import TeamList from './TeamList';
 import TeamStats from './TeamStats';
 import Player from './Player';
 import AccountsWrapper from './AccountsWrapper';
+import EditPlayer from './EditPlayer'
 
 const tempPlayer = {
   name: 'Temp player',
@@ -73,7 +74,7 @@ export class App extends Component {
   showForm() {
     if(this.state.showEditPlayer === true) {
       return (
-        <Edit
+        <EditPlayer
           currentPlayer={this.state.currentPlayer}
           showTeamStats={this.showTeamStats}
         />
