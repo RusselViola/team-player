@@ -17,7 +17,7 @@ export default class NewPlayer extends Component {
       fieldCoverage: this.refs.fieldCoverage.value,
       blockingAblilities: this.refs.blockingAblilities.value,
       gameStrategy: this.refs.gameStrategy.value,
-      playmakingrisks: this.refs.playmakingrisks.value,
+      playmakingRisks: this.refs.playmakingRisks.value,
       notes: this.refs.notes.value,
       createdAt: new Date(),
       owner: Meteor.userId(),
@@ -119,7 +119,7 @@ export default class NewPlayer extends Component {
               </div>
               <div className="input-field col s6">
                 <h5>Playmaking Risks</h5>
-                <select className="browser-default" ref="playmakingrisks">
+                <select className="browser-default" ref="playmakingRisks">
                   <option value="0">0 - Hasn't demonstrated skills</option>
                   <option value="1">1 - Needs improvement</option>
                   <option value="2">2 - Skill acquired</option>
