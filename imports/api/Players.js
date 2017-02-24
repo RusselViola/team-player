@@ -24,7 +24,7 @@ const PlayerSchema = new SimpleSchema({
   fieldCoverage: { type: Number, defaultValue: 0 },
   blockingAblilities: { type: Number, defaultValue: 0 },
   gameStrategy: { type: Number, defaultValue: 0 },
-  playmakingrisks: { type: Number, defaultValue: 0 },
+  playmakingRisks: { type: Number, defaultValue: 0 },
   notes: { type: String, optional: true },
   owner: { type: String },
 });
