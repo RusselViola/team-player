@@ -19,6 +19,11 @@ const styles = {
 };
 
 export default class Player extends Component {
+
+  showEditForm() {
+    this.props.showEditForm();
+  }
+
   render() {
     const player = this.props.player;
     const defense = player.duelTackling + player.fieldCoverage + player.blockingAblilities + player.gameStrategy + player.playmakingRisks;
@@ -109,7 +114,12 @@ export default class Player extends Component {
           </div>
         </CardText>
         <CardActions>
-
+          <RaisedButton
+            label="Edit Player/Stats"
+            labelPosition="before"
+            style={styles.button}
+            onClick={this.showEditForm.bind(this)}
+          />
         </CardActions>
       </Card>
     )
