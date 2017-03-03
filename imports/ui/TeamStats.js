@@ -2,34 +2,26 @@ import React, { Component } from 'react';
 import { Radar } from 'react-chartjs-2';
 import Divider from 'material-ui/Divider';
 
-const data = {
-  labels: ['Eating', 'Drinking', 'Sleeping', 'Designing', 'Coding', 'Cycling', 'Running'],
-  datasets: [
-    {
-      label: 'My First dataset',
-      backgroundColor: 'rgba(179,181,198,0.2)',
-      borderColor: 'rgba(179,181,198,1)',
-      pointBackgroundColor: 'rgba(179,181,198,1)',
-      pointBorderColor: '#fff',
-      pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(179,181,198,1)',
-      data: [65, 59, 90, 81, 56, 55, 40]
-    },
-    {
-      label: 'My Second dataset',
-      backgroundColor: 'rgba(255,99,132,0.2)',
-      borderColor: 'rgba(255,99,132,1)',
-      pointBackgroundColor: 'rgba(255,99,132,1)',
-      pointBorderColor: '#fff',
-      pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(255,99,132,1)',
-      data: [28, 48, 40, 19, 96, 27, 100]
-    }
-  ]
-};
-
 export default class TeamStats extends Component {
+
   render() {
+    const players = this.props.players;
+    const numPlayers = players.length;
+    const data = {
+      labels: ['Ball Manipulation', 'Kicking', 'Passing', 'Duel/Tackling', 'Field Coverage', 'Blocking', 'Strategy', 'Risks'],
+      datasets: [
+        {
+          label: 'In % of max possible',
+          backgroundColor: 'rgba(143,202,249,0.2)',
+          borderColor: 'rgba(12,71,161,1)',
+          pointBackgroundColor: 'rgba(12,71,161,1)',
+          pointBorderColor: '#fff',
+          pointHoverBackgroundColor: '#fff',
+          pointHoverBorderColor: 'rgba(12,71,161,1)',
+          data: [65, 59, 90, 81, 56, 55, 40]
+        }
+      ]
+    };
     return (
       <div>
         <h2>Team Stats</h2>
