@@ -81,7 +81,9 @@ export class App extends Component {
       )
     } else {
       return (
-        <TeamStats />
+         <TeamStats
+           players={this.props.players}
+        />
       );
     }
   }

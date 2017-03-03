@@ -2,34 +2,68 @@ import React, { Component } from 'react';
 import { Radar } from 'react-chartjs-2';
 import Divider from 'material-ui/Divider';
 
-const data = {
-  labels: ['Eating', 'Drinking', 'Sleeping', 'Designing', 'Coding', 'Cycling', 'Running'],
-  datasets: [
-    {
-      label: 'My First dataset',
-      backgroundColor: 'rgba(179,181,198,0.2)',
-      borderColor: 'rgba(179,181,198,1)',
-      pointBackgroundColor: 'rgba(179,181,198,1)',
-      pointBorderColor: '#fff',
-      pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(179,181,198,1)',
-      data: [65, 59, 90, 81, 56, 55, 40]
-    },
-    {
-      label: 'My Second dataset',
-      backgroundColor: 'rgba(255,99,132,0.2)',
-      borderColor: 'rgba(255,99,132,1)',
-      pointBackgroundColor: 'rgba(255,99,132,1)',
-      pointBorderColor: '#fff',
-      pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(255,99,132,1)',
-      data: [28, 48, 40, 19, 96, 27, 100]
-    }
-  ]
-};
-
 export default class TeamStats extends Component {
+
   render() {
+    const players = this.props.players;
+    const numPlayers = players.length;
+
+    const ballManipulation = Math.round((players.reduce((ballManipulation, player) => {
+      return ballManipulation + player.ballManipulation;
+    }, 0) / (3 * numPlayers )) * 100 );
+
+    const kickingAbilities = Math.round((players.reduce((kickingAbilities, player) => {
+      return kickingAbilities + player.kickingAbilities;
+    }, 0) / (3 * numPlayers )) * 100 );
+
+    const passingAbilities = Math.round((players.reduce((passingAbilities, player) => {
+      return passingAbilities + player.passingAbilities;
+    }, 0) / (3 * numPlayers )) * 100 );
+
+    const duelTackling = Math.round((players.reduce((duelTackling, player) => {
+      return duelTackling + player.duelTackling;
+    }, 0) / (3 * numPlayers )) * 100 );
+
+    const fieldCoverage = Math.round((players.reduce((fieldCoverage, player) => {
+      return fieldCoverage + player.fieldCoverage;
+    }, 0) / (3 * numPlayers )) * 100 );
+
+    const blockingAblilities = Math.round((players.reduce((blockingAblilities, player) => {
+      return blockingAblilities + player.blockingAblilities;
+    }, 0) / (3 * numPlayers )) * 100 );
+
+    const gameStrategy = Math.round((players.reduce((gameStrategy, player) => {
+      return gameStrategy + player.gameStrategy;
+    }, 0) / (3 * numPlayers )) * 100 );
+
+    const playmakingRisks = Math.round((players.reduce((playmakingRisks, player) => {
+      return playmakingRisks + player.playmakingRisks;
+    }, 0) / (3 * numPlayers )) * 100 );
+
+    const defense = Math.round((duelTackling + fieldCoverage + blockingAblilities +
+      gameStrategy + playmakingRisks) / 5);
+    const offense = Math.round((kickingAbilities + ballManipulation + passingAbilities +
+      fieldCoverage + gameStrategy + playmakingRisks) / 6);
+    const total = Math.round((duelTackling + fieldCoverage + blockingAblilities +
+      gameStrategy + playmakingRisks + kickingAbilities + ballManipulation + passingAbilities +
+        fieldCoverage + gameStrategy + playmakingRisks + duelTackling + blockingAblilities) /8);
+
+    const data = {
+      labels: ['Ball Manipulation', 'Kicking', 'Passing', 'Duel/Tackling', 'Field Coverage', 'Blocking', 'Strategy', 'Risks'],
+      datasets: [
+        {
+          label: 'In % of max possible',
+          backgroundColor: 'rgba(143,202,249,0.2)',
+          borderColor: 'rgba(12,71,161,1)',
+          pointBackgroundColor: 'rgba(12,71,161,1)',
+          pointBorderColor: '#fff',
+          pointHoverBackgroundColor: '#fff',
+          pointHoverBorderColor: 'rgba(12,71,161,1)',
+          data: [ballManipulation, kickingAbilities, passingAbilities, duelTackling, fieldCoverage,
+            blockingAblilities, gameStrategy, playmakingRisks]
+        }
+      ]
+    };
     return (
       <div>
         <h2>Team Stats</h2>
@@ -47,12 +81,11 @@ export default class TeamStats extends Component {
           <div className="col s12 m5">
             <h4>Scores in % of max possible</h4>
             <Divider />
-            <h4>Team's offense: 45%</h4>
-            <h4>Team's defense: 45%</h4>
-            <h4>Team's total
-              : 45%</h4>
+            <h4>Team's offense: {offense}</h4>
+            <h4>Team's defense: {defense}</h4>
+            <h4>Team's total: {total}</h4>
             <Divider />
-            <h4>Number of players: 9</h4>
+            <h4>Number of players: {numPlayers}</h4>
           </div>
         </div>
       </div>
