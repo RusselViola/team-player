@@ -132,7 +132,7 @@ export default class NewPlayer extends Component {
                 <textarea placeholder="Notes" ref="notes" type="text" className="materialize-textarea"></textarea>
               </div>
               <div className="input-field col s6">
-                <button className="btn waves-effect waves-light" type="submit" name="action">
+                <button className="btn waves-effect waves-light light-blue darken-3" type="submit" name="action">
                   submit
                   <i className="material-icons right">send</i>
                 </button>
