@@ -96,7 +96,8 @@ export class App extends Component {
           <AppBar
             title="Team-Player Application"
             iconClassNameRight="muidocs-icon-navigation-expand-more"
-            showMenuIconButton={false}>
+            showMenuIconButton={false}
+            style={{backgroundColor: "#027780"}}>
             <AccountsWrapper />
           </AppBar>
 
@@ -108,7 +109,7 @@ export class App extends Component {
               />
             </div>
             <div className="col s12 m5">
-              <h2>Team List</h2><Link to="/NewPlayer" className="waves-effect waves-light btn">Add player</Link>
+              <h2>Team List</h2><Link to="/NewPlayer" className="waves-effect waves-light btn light-blue darken-3">Add player</Link>
               <Divider />
                 <List>
                   {this.renderPlayers()}

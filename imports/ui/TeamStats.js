@@ -41,12 +41,12 @@ export default class TeamStats extends Component {
     }, 0) / (3 * numPlayers )) * 100 );
 
     const defense = Math.round((duelTackling + fieldCoverage + blockingAblilities +
-      gameStrategy + playmakingRisks) / 5);
+      gameStrategy + playmakingRisks) / 5) + '%';
     const offense = Math.round((kickingAbilities + ballManipulation + passingAbilities +
-      fieldCoverage + gameStrategy + playmakingRisks) / 6);
+      fieldCoverage + gameStrategy + playmakingRisks) / 6) + '%';
     const total = Math.round((duelTackling + fieldCoverage + blockingAblilities +
       gameStrategy + playmakingRisks + kickingAbilities + ballManipulation + passingAbilities +
-        fieldCoverage + gameStrategy + playmakingRisks + duelTackling + blockingAblilities) /8);
+        fieldCoverage + gameStrategy + playmakingRisks + duelTackling + blockingAblilities) /8) + '%';
 
     const data = {
       labels: ['Ball Manipulation', 'Kicking', 'Passing', 'Duel/Tackling', 'Field Coverage', 'Blocking', 'Strategy', 'Risks'],
